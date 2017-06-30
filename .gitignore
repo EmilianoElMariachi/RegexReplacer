@@ -1,0 +1,5 @@
+*.suo
+bld/
+[Bb]in/
+[Oo]bj/
+packages/
