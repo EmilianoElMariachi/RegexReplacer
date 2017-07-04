@@ -62,7 +62,9 @@ namespace RegexReplacer.Properties {
         
         /// <summary>
         ///   Recherche une chaîne localisée semblable à Replace in files from regular expressions.
-        ///Usage: {0} [Switches]
+        ///
+        ///Usage: {0}
+        ///
         ///Switches:
         ///{1}.
         /// </summary>

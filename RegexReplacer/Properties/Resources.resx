@@ -119,7 +119,9 @@
   </resheader>
   <data name="CommandLine_Help" xml:space="preserve">
     <value>Replace in files from regular expressions.
-Usage: {0} [Switches]
+
+Usage: {0}
+
 Switches:
 {1}</value>
   </data>

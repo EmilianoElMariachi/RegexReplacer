@@ -36,7 +36,7 @@ namespace RegexReplacer
             {
                 {
                     "d|directory=",
-                    "The input directory where to look for files",
+                    "The input directory where to look for files, if not specified current directory is used",
                     d => directory = d
                 },
                 {
@@ -96,19 +96,15 @@ namespace RegexReplacer
 
         private static void ShowHelp(OptionSet optionSet)
         {
-            var exeFileName = Path.GetFileName(Assembly.GetExecutingAssembly().Location);
+            var exeFileName = Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().Location);
+
+
+            var usage = exeFileName + "";
 
             var stringWriter = new StringWriter();
             optionSet.WriteOptionDescriptions(stringWriter);
 
-            Console.WriteLine(Resources.CommandLine_Help, exeFileName, stringWriter);
-
-
-            //Console.WriteLine("Usage: " + exeFileName + " [OPTIONS]+ message");
-            //Console.WriteLine("Greet a list of individuals with an optional message.");
-            //Console.WriteLine("If no message is specified, a generic greeting is used.");
-            //Console.WriteLine();
-            //Console.WriteLine("Options:");
+            Console.WriteLine(Resources.CommandLine_Help, usage, stringWriter);
         }
     }
 }

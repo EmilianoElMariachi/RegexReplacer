@@ -24,17 +24,17 @@ namespace RegexReplacer.Services
         {
             if (string.IsNullOrEmpty(directory))
             {
-                throw new ArgumentNullException(Resources.RegexReplacer_DirectoryUndefined);
+                throw new ArgumentException(Resources.RegexReplacer_DirectoryUndefined);
             }
 
             if (string.IsNullOrEmpty(fileSearchPattern))
             {
-                throw new ArgumentNullException(Resources.RegexReplacer_RegexUndefined);
+                throw new ArgumentException(Resources.RegexReplacer_RegexUndefined);
             }
 
             if (replace == null)
             {
-                throw new ArgumentNullException(string.Format(Resources.RegexReplacer_ReplaceNull));
+                throw new ArgumentException(string.Format(Resources.RegexReplacer_ReplaceNull));
             }
 
             Regex regex = null;
@@ -47,11 +47,12 @@ namespace RegexReplacer.Services
                 throw new ArgumentException(string.Format(Resources.RegexReplacer_RegexInvalid, ex.Message));
             }
 
+            Console.WriteLine(Resources.RegexReplacer_Summary, directory, fileSearchPattern, findRegex, replace, mode);
+
             string relSrcDir;
             string[] relFilePaths;
             _patternFileSetService.Execute(directory, fileSearchPattern, out relSrcDir, out relFilePaths);
 
-            Console.WriteLine(Resources.RegexReplacer_Summary, directory,fileSearchPattern, findRegex, replace, mode);
             var nbModFiles = 0;
 
             foreach (var relFilePath in relFilePaths)
