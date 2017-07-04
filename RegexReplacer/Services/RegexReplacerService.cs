@@ -77,6 +77,7 @@ namespace RegexReplacer.Services
                 }
             }
 
+            Console.WriteLine(Resources.RegexReplacer_NbFoundFiles, relFilePaths.Length);
             Console.WriteLine(Resources.RegexReplacer_NbModifiedFiles, nbModFiles);
         }
     }

@@ -148,8 +148,11 @@ Switches:
 
 Try '--help' for more information.</value>
   </data>
+  <data name="RegexReplacer_NbFoundFiles" xml:space="preserve">
+    <value>Found files: {0}</value>
+  </data>
   <data name="RegexReplacer_NbModifiedFiles" xml:space="preserve">
-    <value>Number of modified files: {0}</value>
+    <value>Modified files: {0}</value>
   </data>
   <data name="RegexReplacer_RegexInvalid" xml:space="preserve">
     <value>Invalid regular expression: {0}</value>
@@ -161,12 +164,13 @@ Try '--help' for more information.</value>
     <value>Replace value can't be null</value>
   </data>
   <data name="RegexReplacer_Summary" xml:space="preserve">
-    <value>####################################
+    <value>############## SUMMARY ##############
 &gt; Input directory: {0}
 &gt; File search pattern: {1}
 &gt; Find regex: {2}
 &gt; Replace: {3}
 &gt; Mode: {4}
-####################################</value>
+#####################################
+</value>
   </data>
 </root>

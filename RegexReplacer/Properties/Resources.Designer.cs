@@ -134,7 +134,16 @@ namespace RegexReplacer.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Number of modified files: {0}.
+        ///   Recherche une chaîne localisée semblable à Found files: {0}.
+        /// </summary>
+        internal static string RegexReplacer_NbFoundFiles {
+            get {
+                return ResourceManager.GetString("RegexReplacer_NbFoundFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Modified files: {0}.
         /// </summary>
         internal static string RegexReplacer_NbModifiedFiles {
             get {
@@ -170,13 +179,14 @@ namespace RegexReplacer.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à ####################################
+        ///   Recherche une chaîne localisée semblable à ############## SUMMARY ##############
         ///&gt; Input directory: {0}
         ///&gt; File search pattern: {1}
         ///&gt; Find regex: {2}
         ///&gt; Replace: {3}
         ///&gt; Mode: {4}
-        ///####################################.
+        ///#####################################
+        ///.
         /// </summary>
         internal static string RegexReplacer_Summary {
             get {
