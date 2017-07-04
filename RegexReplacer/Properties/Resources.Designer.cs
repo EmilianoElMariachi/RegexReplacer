@@ -59,5 +59,98 @@ namespace RegexReplacer.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Replace in files from regular expressions.
+        ///Usage: {0} [Switches]
+        ///Switches:
+        ///{1}.
+        /// </summary>
+        internal static string CommandLine_Help {
+            get {
+                return ResourceManager.GetString("CommandLine_Help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Command line argument(s) &quot;{0}&quot; unknown.
+        /// </summary>
+        internal static string CommandLine_UnknownArgs {
+            get {
+                return ResourceManager.GetString("CommandLine_UnknownArgs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Directory can&apos;t be undefined.
+        /// </summary>
+        internal static string RegexReplacer_DirectoryUndefined {
+            get {
+                return ResourceManager.GetString("RegexReplacer_DirectoryUndefined", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Replace error occurred:
+        /// {0}
+        ///
+        ///Try &apos;--help&apos; for more information..
+        /// </summary>
+        internal static string RegexReplacer_Error {
+            get {
+                return ResourceManager.GetString("RegexReplacer_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Number of modified files: {0}.
+        /// </summary>
+        internal static string RegexReplacer_NbModifiedFiles {
+            get {
+                return ResourceManager.GetString("RegexReplacer_NbModifiedFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Invalid regular expression: {0}.
+        /// </summary>
+        internal static string RegexReplacer_RegexInvalid {
+            get {
+                return ResourceManager.GetString("RegexReplacer_RegexInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Search regex can&apos;t be undefined.
+        /// </summary>
+        internal static string RegexReplacer_RegexUndefined {
+            get {
+                return ResourceManager.GetString("RegexReplacer_RegexUndefined", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Replace value can&apos;t be null.
+        /// </summary>
+        internal static string RegexReplacer_ReplaceNull {
+            get {
+                return ResourceManager.GetString("RegexReplacer_ReplaceNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à ####################################
+        ///&gt; Input directory: {0}
+        ///&gt; File search pattern: {1}
+        ///&gt; Find regex: {2}
+        ///&gt; Replace: {3}
+        ///&gt; Mode: {4}
+        ///####################################.
+        /// </summary>
+        internal static string RegexReplacer_Summary {
+            get {
+                return ResourceManager.GetString("RegexReplacer_Summary", resourceCulture);
+            }
+        }
     }
 }
