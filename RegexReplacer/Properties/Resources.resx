@@ -117,13 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CommandLine_FileSearchPatternNotSpecified" xml:space="preserve">
+    <value>File search pattern argument not specified</value>
+  </data>
+  <data name="CommandLine_FindRegexNotSpecified" xml:space="preserve">
+    <value>Find regular expression argument not specified</value>
+  </data>
   <data name="CommandLine_Help" xml:space="preserve">
-    <value>Replace in files from regular expressions.
+    <value>Description:
+  Find and replace in files from regular expressions.
 
-Usage: {0}
+Usage:
+  {0}
 
 Switches:
 {1}</value>
+  </data>
+  <data name="CommandLine_ReplaceNotSpecified" xml:space="preserve">
+    <value>Replace argument not specified</value>
   </data>
   <data name="CommandLine_UnknownArgs" xml:space="preserve">
     <value>Command line argument(s) "{0}" unknown</value>
@@ -132,8 +143,8 @@ Switches:
     <value>Directory can't be undefined</value>
   </data>
   <data name="RegexReplacer_Error" xml:space="preserve">
-    <value>Replace error occurred:
- {0}
+    <value>The following error occurred:
+{0}
 
 Try '--help' for more information.</value>
   </data>

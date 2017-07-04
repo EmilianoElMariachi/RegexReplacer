@@ -31,7 +31,6 @@ namespace RegexReplacer
 
             var mode = Mode.REAL;
 
-
             var optionSet = new OptionSet
             {
                 {
@@ -40,7 +39,7 @@ namespace RegexReplacer
                     d => directory = d
                 },
                 {
-                    "s|search=",
+                    "s|searchFilePattern=",
                     "File search pattern (ANT like patterns)",
                     s => fileSearchPattern = s
                 },
@@ -82,6 +81,20 @@ namespace RegexReplacer
                 }
                 else
                 {
+                    if (fileSearchPattern == null)
+                    {
+                        throw new ArgumentException(Resources.CommandLine_FileSearchPatternNotSpecified);
+                    }
+                    if (findRegex == null)
+                    {
+                        throw new ArgumentException(Resources.CommandLine_FindRegexNotSpecified);
+                    } 
+                    if (replace == null)
+                    {
+                        throw new ArgumentException(Resources.CommandLine_ReplaceNotSpecified);
+                    }
+                    
+
                     _regexReplacerService.Replace(directory, fileSearchPattern, findRegex, replace, mode);
                 }
 
@@ -96,10 +109,9 @@ namespace RegexReplacer
 
         private static void ShowHelp(OptionSet optionSet)
         {
-            var exeFileName = Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().Location);
+            var exeName = Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().Location);
 
-
-            var usage = exeFileName + "";
+            var usage = exeName + " [-d|--directory=<path>] -s|--searchFilePattern=<pattern> -f|--find=<regex> [-t|--test] [-h|--help]";
 
             var stringWriter = new StringWriter();
             optionSet.WriteOptionDescriptions(stringWriter);

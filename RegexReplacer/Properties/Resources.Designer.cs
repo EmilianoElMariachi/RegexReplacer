@@ -61,9 +61,29 @@ namespace RegexReplacer.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Replace in files from regular expressions.
+        ///   Recherche une chaîne localisée semblable à File search pattern argument not specified.
+        /// </summary>
+        internal static string CommandLine_FileSearchPatternNotSpecified {
+            get {
+                return ResourceManager.GetString("CommandLine_FileSearchPatternNotSpecified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Find regular expression argument not specified.
+        /// </summary>
+        internal static string CommandLine_FindRegexNotSpecified {
+            get {
+                return ResourceManager.GetString("CommandLine_FindRegexNotSpecified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Description:
+        ///  Find and replace in files from regular expressions.
         ///
-        ///Usage: {0}
+        ///Usage:
+        ///  {0}
         ///
         ///Switches:
         ///{1}.
@@ -71,6 +91,15 @@ namespace RegexReplacer.Properties {
         internal static string CommandLine_Help {
             get {
                 return ResourceManager.GetString("CommandLine_Help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Replace argument not specified.
+        /// </summary>
+        internal static string CommandLine_ReplaceNotSpecified {
+            get {
+                return ResourceManager.GetString("CommandLine_ReplaceNotSpecified", resourceCulture);
             }
         }
         
@@ -93,8 +122,8 @@ namespace RegexReplacer.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Replace error occurred:
-        /// {0}
+        ///   Recherche une chaîne localisée semblable à The following error occurred:
+        ///{0}
         ///
         ///Try &apos;--help&apos; for more information..
         /// </summary>
