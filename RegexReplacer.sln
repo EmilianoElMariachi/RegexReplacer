@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegexReplacer", "RegexReplacer\RegexReplacer.csproj", "{2CB1E46D-2025-41AC-83D2-AA990D6982CC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobstarFileSearch", "GlobstarFileSearch\GlobstarFileSearch\GlobstarFileSearch.csproj", "{651DA459-8D78-4A43-BE42-2AF11F8DCECF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegexReplacer", "RegexReplacer\RegexReplacer.csproj", "{843A9D96-DA58-49B1-9DCC-D71FB5E5D14B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2CB1E46D-2025-41AC-83D2-AA990D6982CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2CB1E46D-2025-41AC-83D2-AA990D6982CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2CB1E46D-2025-41AC-83D2-AA990D6982CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2CB1E46D-2025-41AC-83D2-AA990D6982CC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{651DA459-8D78-4A43-BE42-2AF11F8DCECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{651DA459-8D78-4A43-BE42-2AF11F8DCECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{651DA459-8D78-4A43-BE42-2AF11F8DCECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{651DA459-8D78-4A43-BE42-2AF11F8DCECF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{843A9D96-DA58-49B1-9DCC-D71FB5E5D14B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{843A9D96-DA58-49B1-9DCC-D71FB5E5D14B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{843A9D96-DA58-49B1-9DCC-D71FB5E5D14B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{843A9D96-DA58-49B1-9DCC-D71FB5E5D14B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
