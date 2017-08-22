@@ -2,6 +2,7 @@
 using System.IO.Abstractions;
 using System.Text.RegularExpressions;
 using GlobstarFileSearch;
+using log4net;
 using RegexReplacer.Properties;
 
 namespace RegexReplacer.Services
@@ -11,12 +12,14 @@ namespace RegexReplacer.Services
         private readonly IPatternFileSetService _patternFileSetService;
         private readonly IFileSystem _fileSystem;
         private readonly IEncodingHelper _encodingHelper;
+        private readonly ILog _logger;
 
         public RegexReplacerService(IPatternFileSetService patternFileSetService, IFileSystem fileSystem, IEncodingHelper encodingHelper)
         {
             _patternFileSetService = patternFileSetService;
             _fileSystem = fileSystem;
             _encodingHelper = encodingHelper;
+            _logger = LogManager.GetLogger(this.GetType());
         }
 
 
@@ -47,7 +50,7 @@ namespace RegexReplacer.Services
                 throw new ArgumentException(string.Format(Resources.RegexReplacer_RegexInvalid, ex.Message));
             }
 
-            Console.WriteLine(Resources.RegexReplacer_Summary, directory, fileSearchPattern, findRegex, replace, mode);
+            _logger.Info(string.Format(Resources.RegexReplacer_Summary, directory, fileSearchPattern, findRegex, replace, mode));
 
             string relSrcDir;
             string[] relFilePaths;
@@ -73,12 +76,12 @@ namespace RegexReplacer.Services
                         _fileSystem.File.WriteAllText(filePath, newContent, fileEncoding);
                     }
 
-                    Console.WriteLine(filePath);
+                    _logger.Info(filePath);
                 }
             }
 
-            Console.WriteLine(Resources.RegexReplacer_NbFoundFiles, relFilePaths.Length);
-            Console.WriteLine(Resources.RegexReplacer_NbModifiedFiles, nbModFiles);
+            _logger.Info(string.Format(Resources.RegexReplacer_NbFoundFiles, relFilePaths.Length));
+            _logger.Info(string.Format(Resources.RegexReplacer_NbModifiedFiles, nbModFiles));
         }
     }
 }

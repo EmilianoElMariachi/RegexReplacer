@@ -179,7 +179,8 @@ namespace RegexReplacer.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à ############## SUMMARY ##############
+        ///   Recherche une chaîne localisée semblable à 
+        ///############## SUMMARY ##############
         ///&gt; Input directory: {0}
         ///&gt; File search pattern: {1}
         ///&gt; Find regex: {2}

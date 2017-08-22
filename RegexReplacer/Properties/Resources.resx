@@ -164,7 +164,8 @@ Try '--help' for more information.</value>
     <value>Replace value can't be null</value>
   </data>
   <data name="RegexReplacer_Summary" xml:space="preserve">
-    <value>############## SUMMARY ##############
+    <value>
+############## SUMMARY ##############
 &gt; Input directory: {0}
 &gt; File search pattern: {1}
 &gt; Find regex: {2}
