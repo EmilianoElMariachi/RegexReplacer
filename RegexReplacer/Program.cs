@@ -71,8 +71,9 @@ namespace RegexReplacer
                 var extraArgs = optionSet.Parse(args);
                 if (extraArgs != null && extraArgs.Count > 0)
                 {
-                    var unknownArgs = string.Join(" ", extraArgs);
-                    throw new ArgumentException(Resources.CommandLine_UnknownArgs, unknownArgs);
+                    var unknownArgs = string.Join(", ", extraArgs);
+                    var exMessage = string.Format(Resources.CommandLine_UnknownArgs, unknownArgs);
+                    throw new ArgumentException(exMessage);
                 }
 
                 if (showHelp)
