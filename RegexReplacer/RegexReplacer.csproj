@@ -46,6 +46,9 @@
     <Reference Include="GlobstarFileSearch">
       <HintPath>..\packages\GlobstarFileSearch.0.0.1\lib\net45\GlobstarFileSearch.dll</HintPath>
     </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="NDesk.Options">
       <HintPath>..\packages\NDesk.Options.0.2.1\lib\NDesk.Options.dll</HintPath>
     </Reference>
