@@ -134,7 +134,43 @@ namespace RegexReplacer.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Found files: {0}.
+        ///   Recherche une chaîne localisée semblable à Expression found in file &quot;{0}&quot;.
+        /// </summary>
+        internal static string RegexReplacer_ExpressionFoundInFile {
+            get {
+                return ResourceManager.GetString("RegexReplacer_ExpressionFoundInFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Expression not found in file &quot;{0}&quot;.
+        /// </summary>
+        internal static string RegexReplacer_ExpressionNotFoundInFile {
+            get {
+                return ResourceManager.GetString("RegexReplacer_ExpressionNotFoundInFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à File modified &quot;{0}&quot;.
+        /// </summary>
+        internal static string RegexReplacer_FileModified {
+            get {
+                return ResourceManager.GetString("RegexReplacer_FileModified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} file(s) where expression found .
+        /// </summary>
+        internal static string RegexReplacer_NbFilesWhereExpressionFound {
+            get {
+                return ResourceManager.GetString("RegexReplacer_NbFilesWhereExpressionFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} file(s) analyzed.
         /// </summary>
         internal static string RegexReplacer_NbFoundFiles {
             get {
@@ -143,16 +179,7 @@ namespace RegexReplacer.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Modified files: {0}.
-        /// </summary>
-        internal static string RegexReplacer_NbModifiedFiles {
-            get {
-                return ResourceManager.GetString("RegexReplacer_NbModifiedFiles", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Invalid regular expression: {0}.
+        ///   Recherche une chaîne localisée semblable à Invalid regular expression &quot;{0}&quot;.
         /// </summary>
         internal static string RegexReplacer_RegexInvalid {
             get {

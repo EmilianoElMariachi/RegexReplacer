@@ -148,14 +148,23 @@ Switches:
 
 Try '--help' for more information.</value>
   </data>
-  <data name="RegexReplacer_NbFoundFiles" xml:space="preserve">
-    <value>Found files: {0}</value>
+  <data name="RegexReplacer_ExpressionFoundInFile" xml:space="preserve">
+    <value>Expression found in file "{0}"</value>
   </data>
-  <data name="RegexReplacer_NbModifiedFiles" xml:space="preserve">
-    <value>Modified files: {0}</value>
+  <data name="RegexReplacer_ExpressionNotFoundInFile" xml:space="preserve">
+    <value>Expression not found in file "{0}"</value>
+  </data>
+  <data name="RegexReplacer_FileModified" xml:space="preserve">
+    <value>File modified "{0}"</value>
+  </data>
+  <data name="RegexReplacer_NbFilesWhereExpressionFound" xml:space="preserve">
+    <value>{0} file(s) where expression found </value>
+  </data>
+  <data name="RegexReplacer_NbFoundFiles" xml:space="preserve">
+    <value>{0} file(s) analyzed</value>
   </data>
   <data name="RegexReplacer_RegexInvalid" xml:space="preserve">
-    <value>Invalid regular expression: {0}</value>
+    <value>Invalid regular expression "{0}"</value>
   </data>
   <data name="RegexReplacer_RegexUndefined" xml:space="preserve">
     <value>Search regex can't be undefined</value>

@@ -29,7 +29,7 @@ namespace RegexReplacer
             var directory = _fileSystem.Directory.GetCurrentDirectory();
             var showHelp = false;
 
-            var mode = Mode.REAL;
+            var mode = Mode.FILE;
 
             var optionSet = new OptionSet
             {
@@ -54,9 +54,9 @@ namespace RegexReplacer
                     r => replace = r
                 },
                 {
-                    "t|test",
-                    "When set, no files will be modified",
-                    t => mode = Mode.TEST
+                    "m|mode=",
+                    "Specifies the mode to use:\n-" + Mode.FILE + ": replace in files\n-" + Mode.DISPLAY + ": display the replacement results in the console",
+                    t => mode = (Mode) Enum.Parse(typeof(Mode), t)
                 },
                 {
                     "h|help",
@@ -64,7 +64,6 @@ namespace RegexReplacer
                     h => showHelp = true
                 },
             };
-
 
             try
             {
@@ -89,12 +88,11 @@ namespace RegexReplacer
                     if (findRegex == null)
                     {
                         throw new ArgumentException(Resources.CommandLine_FindRegexNotSpecified);
-                    } 
+                    }
                     if (replace == null)
                     {
                         throw new ArgumentException(Resources.CommandLine_ReplaceNotSpecified);
                     }
-                    
 
                     _regexReplacerService.Replace(directory, fileSearchPattern, findRegex, replace, mode);
                 }
@@ -112,7 +110,7 @@ namespace RegexReplacer
         {
             var exeName = Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().Location);
 
-            var usage = exeName + " [-d|--directory=<path>] -s|--searchFilePattern=<pattern> -f|--find=<regex> [-t|--test] [-h|--help]";
+            var usage = exeName + " [-d|--directory=<path>] -s|--searchFilePattern=<pattern> -f|--find=<regex> -r|--replace=<replacement> [-m|--mode=<mode>] [-h|--help]";
 
             var stringWriter = new StringWriter();
             optionSet.WriteOptionDescriptions(stringWriter);
