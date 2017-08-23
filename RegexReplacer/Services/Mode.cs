@@ -3,12 +3,12 @@ namespace RegexReplacer.Services
     public enum Mode
     {
         /// <summary>
-        /// Files might be modified
+        /// Rewrites each file for which the expression could be found and replaced
         /// </summary>
-        REAL,
+        FILE,
         /// <summary>
-        /// In test mode, no file will be modified
+        /// Displays in the console the replacement result for each file where the expression could be found and replaced
         /// </summary>
-        TEST,
+        DISPLAY,
     }
 }

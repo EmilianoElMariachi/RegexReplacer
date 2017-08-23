@@ -2,6 +2,7 @@
 using System.IO.Abstractions;
 using System.Text.RegularExpressions;
 using GlobstarFileSearch;
+using log4net;
 using RegexReplacer.Properties;
 
 namespace RegexReplacer.Services
@@ -11,16 +12,17 @@ namespace RegexReplacer.Services
         private readonly IPatternFileSetService _patternFileSetService;
         private readonly IFileSystem _fileSystem;
         private readonly IEncodingHelper _encodingHelper;
+        private readonly ILog _logger;
 
         public RegexReplacerService(IPatternFileSetService patternFileSetService, IFileSystem fileSystem, IEncodingHelper encodingHelper)
         {
             _patternFileSetService = patternFileSetService;
             _fileSystem = fileSystem;
             _encodingHelper = encodingHelper;
+            _logger = LogManager.GetLogger(this.GetType());
         }
 
-
-        public void Replace(string directory, string fileSearchPattern, string findRegex, string replace, Mode mode)
+        public ReplacementResult Replace(string directory, string fileSearchPattern, string findRegex, string replace, Mode mode)
         {
             if (string.IsNullOrEmpty(directory))
             {
@@ -47,13 +49,13 @@ namespace RegexReplacer.Services
                 throw new ArgumentException(string.Format(Resources.RegexReplacer_RegexInvalid, ex.Message));
             }
 
-            Console.WriteLine(Resources.RegexReplacer_Summary, directory, fileSearchPattern, findRegex, replace, mode);
+            _logger.Info(string.Format(Resources.RegexReplacer_Summary, directory, fileSearchPattern, findRegex, replace, mode));
 
             string relSrcDir;
             string[] relFilePaths;
             _patternFileSetService.Execute(directory, fileSearchPattern, out relSrcDir, out relFilePaths);
 
-            var nbModFiles = 0;
+            var nbFilesWhereExpressionFound = 0;
 
             foreach (var relFilePath in relFilePaths)
             {
@@ -67,18 +69,31 @@ namespace RegexReplacer.Services
 
                 if (initialContent != newContent)
                 {
-                    nbModFiles++;
-                    if (mode != Mode.TEST)
+                    nbFilesWhereExpressionFound++;
+                    switch (mode)
                     {
-                        _fileSystem.File.WriteAllText(filePath, newContent, fileEncoding);
+                        case Mode.FILE:
+                            _fileSystem.File.WriteAllText(filePath, newContent, fileEncoding);
+                            _logger.Info(string.Format(Resources.RegexReplacer_FileModified, filePath));
+                            break;
+                        case Mode.DISPLAY:
+                            _logger.Info(string.Format(Resources.RegexReplacer_ExpressionFoundInFile, filePath));
+                            Console.WriteLine(newContent);
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException("mode", mode, null);
                     }
-
-                    Console.WriteLine(filePath);
+                }
+                else
+                {
+                    _logger.Info(string.Format(Resources.RegexReplacer_ExpressionNotFoundInFile, filePath));
                 }
             }
 
-            Console.WriteLine(Resources.RegexReplacer_NbFoundFiles, relFilePaths.Length);
-            Console.WriteLine(Resources.RegexReplacer_NbModifiedFiles, nbModFiles);
+            _logger.Info(string.Format(Resources.RegexReplacer_NbFilesFound, relFilePaths.Length));
+            _logger.Info(string.Format(Resources.RegexReplacer_NbFilesWhereExpressionFound, nbFilesWhereExpressionFound));
+
+            return new ReplacementResult(relFilePaths.Length, nbFilesWhereExpressionFound);
         }
     }
 }

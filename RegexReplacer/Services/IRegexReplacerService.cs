@@ -10,6 +10,6 @@
         /// <param name="findRegex">The regular expression used for searching in matching files</param>
         /// <param name="replace">The replacement value</param>
         /// <param name="mode">The mode in which the replacement should operate</param>
-        void Replace(string directory, string fileSearchPattern, string findRegex, string replace, Mode mode);
+        ReplacementResult Replace(string directory, string fileSearchPattern, string findRegex, string replace, Mode mode);
     }
 }
