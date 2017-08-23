@@ -161,20 +161,20 @@ namespace RegexReplacer.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} file(s) analyzed.
+        /// </summary>
+        internal static string RegexReplacer_NbFilesFound {
+            get {
+                return ResourceManager.GetString("RegexReplacer_NbFilesFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à {0} file(s) where expression found .
         /// </summary>
         internal static string RegexReplacer_NbFilesWhereExpressionFound {
             get {
                 return ResourceManager.GetString("RegexReplacer_NbFilesWhereExpressionFound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à {0} file(s) analyzed.
-        /// </summary>
-        internal static string RegexReplacer_NbFoundFiles {
-            get {
-                return ResourceManager.GetString("RegexReplacer_NbFoundFiles", resourceCulture);
             }
         }
         

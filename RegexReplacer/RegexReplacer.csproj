@@ -76,6 +76,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Services\RegexReplacerService.cs" />
     <Compile Include="Services\Mode.cs" />
+    <Compile Include="Services\ReplacementResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

@@ -22,7 +22,7 @@ namespace RegexReplacer.Services
             _logger = LogManager.GetLogger(this.GetType());
         }
 
-        public void Replace(string directory, string fileSearchPattern, string findRegex, string replace, Mode mode)
+        public ReplacementResult Replace(string directory, string fileSearchPattern, string findRegex, string replace, Mode mode)
         {
             if (string.IsNullOrEmpty(directory))
             {
@@ -90,8 +90,10 @@ namespace RegexReplacer.Services
                 }
             }
 
-            _logger.Info(string.Format(Resources.RegexReplacer_NbFoundFiles, relFilePaths.Length));
+            _logger.Info(string.Format(Resources.RegexReplacer_NbFilesFound, relFilePaths.Length));
             _logger.Info(string.Format(Resources.RegexReplacer_NbFilesWhereExpressionFound, nbFilesWhereExpressionFound));
+
+            return new ReplacementResult(relFilePaths.Length, nbFilesWhereExpressionFound);
         }
     }
 }

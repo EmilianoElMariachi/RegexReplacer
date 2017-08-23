@@ -27,9 +27,9 @@ namespace RegexReplacer
             string findRegex = null;
             string replace = null;
             var directory = _fileSystem.Directory.GetCurrentDirectory();
-            var showHelp = false;
-
             var mode = Mode.FILE;
+            var noMatchIsError = true;
+            var showHelp = false;
 
             var optionSet = new OptionSet
             {
@@ -59,10 +59,15 @@ namespace RegexReplacer
                     t => mode = (Mode) Enum.Parse(typeof(Mode), t)
                 },
                 {
+                    "n|noMatchNoError",
+                    "Flag: if set the return code will be 0 even if no match found. By default return code is '0' if at least one match found and '1' if no match found.",
+                    h => noMatchIsError = false
+                },
+                {
                     "h|help",
                     "Shows this message and exit",
                     h => showHelp = true
-                },
+                }
             };
 
             try
@@ -78,31 +83,34 @@ namespace RegexReplacer
                 if (showHelp)
                 {
                     ShowHelp(optionSet);
+                    return 0;
                 }
-                else
+                
+                if (fileSearchPattern == null)
                 {
-                    if (fileSearchPattern == null)
-                    {
-                        throw new ArgumentException(Resources.CommandLine_FileSearchPatternNotSpecified);
-                    }
-                    if (findRegex == null)
-                    {
-                        throw new ArgumentException(Resources.CommandLine_FindRegexNotSpecified);
-                    }
-                    if (replace == null)
-                    {
-                        throw new ArgumentException(Resources.CommandLine_ReplaceNotSpecified);
-                    }
-
-                    _regexReplacerService.Replace(directory, fileSearchPattern, findRegex, replace, mode);
+                    throw new ArgumentException(Resources.CommandLine_FileSearchPatternNotSpecified);
+                }
+                if (findRegex == null)
+                {
+                    throw new ArgumentException(Resources.CommandLine_FindRegexNotSpecified);
+                }
+                if (replace == null)
+                {
+                    throw new ArgumentException(Resources.CommandLine_ReplaceNotSpecified);
                 }
 
+                var replacementResult = _regexReplacerService.Replace(directory, fileSearchPattern, findRegex, replace, mode);
+
+                if (noMatchIsError && replacementResult.NbFilesWhereRegexFound <= 0)
+                {
+                    return 1;
+                }
                 return 0;
             }
             catch (Exception ex)
             {
                 Console.Error.WriteLine(Resources.RegexReplacer_Error, ex.Message);
-                return 1;
+                return 2;
             }
         }
 
@@ -110,7 +118,7 @@ namespace RegexReplacer
         {
             var exeName = Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().Location);
 
-            var usage = exeName + " [-d|--directory=<path>] -s|--searchFilePattern=<pattern> -f|--find=<regex> -r|--replace=<replacement> [-m|--mode=<mode>] [-h|--help]";
+            var usage = exeName + " [-d|--directory=<path>] -s|--searchFilePattern=<pattern> -f|--find=<regex> -r|--replace=<replacement> [-m|--mode=<mode>] [-n|--noMatchNoError] [-h|--help]";
 
             var stringWriter = new StringWriter();
             optionSet.WriteOptionDescriptions(stringWriter);
